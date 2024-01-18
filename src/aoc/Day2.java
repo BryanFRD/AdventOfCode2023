@@ -14,20 +14,20 @@ public class Day2 {
     public static boolean isGamePossible(String input, int maxRed, int maxGreen, int maxBlue) {
         String[] games = input.split(";");
 
-        boolean r = true;
+        boolean result = true;
 
         for(String game : games) {
             if (isColorCountHigherThan(maxRed, game, redPattern))
-                r = false;
+                result = false;
 
             if (isColorCountHigherThan(maxGreen, game, greenPattern))
-                r = false;
+                result = false;
 
             if (isColorCountHigherThan(maxBlue, game, bluePattern))
-                r = false;
+                result = false;
         }
 
-        return r;
+        return result;
     }
 
     private static boolean isColorCountHigherThan(int maxColor, String game, Pattern pattern) {
@@ -54,7 +54,7 @@ public class Day2 {
     public static int retrievePowerOfMinimumColorNeeded(String input) {
         String[] games = input.split(";");
 
-        int r = 1, g = 1, b = 1;
+        int red = 1, green = 1, blue = 1;
 
         for(String game : games) {
             Matcher redMatcher = redPattern.matcher(game);
@@ -62,22 +62,22 @@ public class Day2 {
             Matcher blueMatcher = bluePattern.matcher(game);
 
             if(redMatcher.find()) {
-                int red = Integer.parseInt(redMatcher.group(1));
-                r = r == 1 ? red : Math.max(r, red);
+                int r = Integer.parseInt(redMatcher.group(1));
+                red = red == 1 ? r : Math.max(red, r);
             }
 
             if(greenMatcher.find()) {
-                int green = Integer.parseInt(greenMatcher.group(1));
-                g = g == 1 ? green : Math.max(g, green);
+                int g = Integer.parseInt(greenMatcher.group(1));
+                green = green == 1 ? g : Math.max(green, g);
             }
 
             if(blueMatcher.find()) {
-                int blue = Integer.parseInt(blueMatcher.group(1));
-                b = b == 1 ? blue : Math.max(b, blue);
+                int b = Integer.parseInt(blueMatcher.group(1));
+                blue = blue == 1 ? b : Math.max(b, blue);
             }
         }
 
-        return r * g * b;
+        return red * green * blue;
     }
 
     public static void execute(){
