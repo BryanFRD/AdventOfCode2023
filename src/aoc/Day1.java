@@ -1,4 +1,4 @@
-package AoC;
+package aoc;
 
 import utils.FileUtils;
 import utils.NumberUtils;

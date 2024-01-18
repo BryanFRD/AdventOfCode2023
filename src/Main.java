@@ -1,6 +1,6 @@
-import AoC.Day1;
-import AoC.Day2;
-import AoC.Day3;
+import aoc.Day1;
+import aoc.Day2;
+import aoc.Day3;
 
 public class Main {
     public static void main(String[] args) {
