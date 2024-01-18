@@ -71,17 +71,6 @@ public class Day3 {
 
     public static void execute(){
         List<String> lines = utils.FileUtils.getArrayFromDocument("day3");
-        /*List<String> lines = List.of(
-                "467..114..",
-                "...*......",
-                "..35..633.",
-                "......#...",
-                "617*......",
-                ".....+.58.",
-                "..592.....",
-                "......755.",
-                "...$.*....",
-                ".664.598..");*/
 
         int sumP1 = retrieveEngineParts(lines).stream().mapToInt(Integer::intValue).sum();
         int sumP2 = retrieveGearsRatio(lines).stream().mapToInt(Integer::intValue).sum();
