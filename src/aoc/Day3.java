@@ -5,6 +5,42 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Part 1: On nous donne un schéma de moteur avec des pièces et des numéros
+ * On doit récupérer les numéros des pièces autour des symboles
+ * Exemple:
+ * 467..114..
+ * ...*......
+ * ..35..633.
+ * ......#...
+ * 617*......
+ * .....+.58.
+ * ..592.....
+ * ......755.
+ * ...$.*....
+ * .664.598..
+ *
+ * les numéros 114 et 58 n'ont pas de pièces autour d'eux donc on ne les prend pas en compte
+ * on additionne donc 467 + 35 + 633 + 617 + 592 + 755 + 664 + 598 = 4361
+ *
+ * Part 2: On doit récupérer 2 numéros autour du symbole * et les multiplier
+ * Exemple:
+ * 467..114..
+ * ...*......
+ * ..35..633.
+ * ......#...
+ * 617*......
+ * .....+.58.
+ * ..592.....
+ * ......755.
+ * ...$.*....
+ * .664.598..
+ *
+ * les numéros 467 et 35 sont autour du symbole * donc on les multiplie et on obtient 16345
+ * les numéros 755 et 598 sont autour du symbole * donc on les multiplie et on obtient 451390
+ *
+ * on additionne donc 16345 + 451390 = 467835
+ */
 public class Day3 {
 
     private static final Pattern enginePartPattern = Pattern.compile("(\\d*\\d*\\d)");

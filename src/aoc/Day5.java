@@ -5,6 +5,62 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
+/**
+ * Part 1: on a des maps pour chaque catégorie
+ * on doit convertir un nombre source en nombre destination
+ * on a une map qui nous permet de changer d'une graine à un sol, d'un sol à un engrais, d'un engrais à de l'eau, etc...
+ * en sachant qu'une map est écrite de cette façon:
+ * destination source range
+ *
+ * seeds: 79 14 55 13
+ *
+ * seed-to-soil map:
+ * 50 98 2
+ * 52 50 48
+ *
+ * soil-to-fertilizer map:
+ * 0 15 37
+ * 37 52 2
+ * 39 0 15
+ *
+ * fertilizer-to-water map:
+ * 49 53 8
+ * 0 11 42
+ * 42 0 7
+ * 57 7 4
+ *
+ * water-to-light map:
+ * 88 18 7
+ * 18 25 70
+ *
+ * light-to-temperature map:
+ * 45 77 23
+ * 81 45 19
+ * 68 64 13
+ *
+ * temperature-to-humidity map:
+ * 0 69 1
+ * 1 0 69
+ *
+ * humidity-to-location map:
+ * 60 56 37
+ * 56 93 4
+ *
+ * donc la première graine (79) et dans la range de la 2e ligne de la map seed-to-soil car 79 est entre 50 et 98
+ * comme la map a une range de 48, on a les numéros suivant: 50, 51, 52, 53, ..., 96, 97, 98
+ * ensuite on regarde la map soil-to-fertilizer et on refait la même chose
+ * etc ...
+ *
+ * La réponse est la plus petite location possible parmis toutes les locations obtenues
+ *
+ * Part 2: on doit faire la même chose que la partie 1 mais avec une graine et une range
+ * seeds: 79 14 55 13
+ * ce ne sont plus 4 graines mais 2 graines et 2 ranges
+ * 79 est la graine et 14 est la range
+ * donc on a les graines 79, 80, 81, ..., 91, 92, 93 à calculer
+ *
+ * La réponse est la plus petite location possible parmis toutes les locations obtenues
+ */
 public class Day5 {
 
     private static final List<Long> seeds = new ArrayList<>();

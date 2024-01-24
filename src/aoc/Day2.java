@@ -4,6 +4,31 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Part 1: On nous donne un sac de cube de trois couleurs différentes (rouge, vert, bleu)
+ * On doit alors toutes les parties possible et additioner les numéros de chaque partie
+ * Exemple: pour un sac donné de 3 rouge, 5 vert et 4 bleu
+ * Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+ * Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+ * Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+ * Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+ * Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+ *
+ * Seuls les jeux 1, 2 et 5 sont possibles car ils ne dépassent pas les limites de couleurs
+ * donc la réponse est 1 + 2 + 5 = 8
+ *
+ * Part 2: Maintenant on doit multiplier la valeur de chaque couleurs les plus grandes de chaque partie
+ * Exemple: pour un sac donné de 3 rouge, 5 vert et 4 bleu
+ * Game 1: 3 blue, 4 red; 1 red, 2 green, 6 blue; 2 green
+ * Game 2: 1 blue, 2 green; 3 green, 4 blue, 1 red; 1 green, 1 blue
+ * Game 3: 8 green, 6 blue, 20 red; 5 blue, 4 red, 13 green; 5 green, 1 red
+ * Game 4: 1 green, 3 red, 6 blue; 3 green, 6 red; 3 green, 15 blue, 14 red
+ * Game 5: 6 red, 1 blue, 3 green; 2 blue, 1 red, 2 green
+ *
+ * pour la partie 1: 4 (red) * 6 (blue) * 2 (green) = 48
+ * et les autres parties ont obtiens 12, 1560, 630, 36
+ * donc la réponse est 48 + 12 + 1560 + 630 + 36 = 2286
+ */
 public class Day2 {
 
     private static final Pattern redPattern = Pattern.compile("(?=(\\d+) red)");

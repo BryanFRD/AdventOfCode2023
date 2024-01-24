@@ -7,6 +7,21 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * Part 1: Récupérer le premier et le dernier chiffre de chaque ligne, les combiner ensemble et les additionner
+ * Exemple: 1234 -> 14
+ *         123456 -> 16
+ *         123456789 -> 19
+ *         14 + 16 + 19 = 49
+ *         Réponse: 49
+ *
+ * Part 2: Prendre en compte les mots
+ * Exemple: 1234 -> 14
+ *        one23eight56 -> 16
+ *        123456sevenoneeight -> 18
+ *        14 + 16 + 18 = 48
+ *        Réponse: 48
+ */
 public class Day1 {
 
     private static final Pattern partOnePattern = Pattern.compile("(?=(\\d))");
